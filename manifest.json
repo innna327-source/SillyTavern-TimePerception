@@ -1,0 +1,10 @@
+{
+    "name": "Time Perception",
+    "display_name": "时间感知 (Time Perception)",
+    "description": "让 AI 角色感知现实世界的时间、日期和星期，并在对话中做出相应反馈。",
+    "version": "1.0.0",
+    "author": "YourName",
+    "main": "index.js",
+    "require_version": "1.10.0"
+}
+
