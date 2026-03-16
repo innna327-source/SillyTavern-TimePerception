@@ -9,16 +9,7 @@ const extensionName = "st_time_perception";
  */
 function getCurrentTimeInfo() {
     const now = new Date();
-    
-    const year = now.getFullYear();
-    const month = now.getMonth() + 1;
-    const date = now.getDate();
-    
-    // 获取星期
     const days = ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'];
-    const dayOfWeek = days[now.getDay()];
-    
-    // 获取具体时间和时段
     const hours = now.getHours();
     const minutes = now.getMinutes().toString().padStart(2, '0');
     
@@ -29,8 +20,8 @@ function getCurrentTimeInfo() {
     else if (hours >= 13 && hours < 18) timeSlot = "下午";
     else if (hours >= 18 && hours < 24) timeSlot = "晚上";
 
-    // 构建发给 AI 的提示词
-    return `[系统提示：当前现实世界的时间是 ${year}年${month}月${date}日, ${dayOfWeek}, ${timeSlot} ${hours}:${minutes}。请在扮演时感知并符合当前的时间状态。]`;
+    // 【关键修改】：强化提示词的语气，加入 OOC 绝对指令
+    return `\n[OOC重要指令：当前的绝对现实时间是 ${now.getFullYear()}年${now.getMonth() + 1}月${now.getDate()}日, ${days[now.getDay()]}, ${timeSlot} ${hours}:${minutes}。在接下来的回复中，如果用户询问现在几点、向你进行早中晚问候、或讨论现实生活，你必须【严格遵从并说出】这个现实时间，绝对不要使用角色卡或虚拟背景中的时间！]\n`;
 }
 
 /**
