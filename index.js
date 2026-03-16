@@ -1,5 +1,5 @@
-import { getContext } from "../../../extensions.js";
-import { eventSource, event_types } from "../../../../script.js";
+import { getContext } from "../../extensions.js";
+import { eventSource, event_types } from "../../script.js";
 
 // 插件标识名
 const extensionName = "st_time_perception";
